@@ -3,11 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/style.css">
     <title>Aeris Weather App</title>
 </head>
 <body>
-    
-    <script src="app.js"></script>
+    <div class="main-container">
+        <div class="nav-container">
+            <div class="logo-container">
+                <img src="media/weather.svg" class="aeris-logo" alt="Aeris logo">
+                <p class="logo-text">Aeris Weather</p>
+            </div>
+
+            <div class="search-container">
+                <form>
+                <input type="text" name="search-box" id="search-box" placeholder="Enter a city..." required>
+                <input type="submit" value="Search">
+                </form>
+            </div>
+        </div>
+        
+    </div>    
+    <script src="src/app.js"></script>
+
+
+    <!-- <footer>
+        <a href="https://iconscout.com/icons/weather" class="text-underline font-size-sm" target="_blank">weather</a> by <a href="https://iconscout.com/contributors/iconshadow" class="text-underline font-size-sm">Colourcreatype</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>
+    </footer> -->
 </body>
 </html>

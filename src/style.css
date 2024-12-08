@@ -1,0 +1,49 @@
+body {
+    background: linear-gradient(#D7DDE8, #757F9A, #494c54);
+    height: 100dvh;
+    overflow: hidden;
+}
+
+.main-container {
+    width: 900px;
+    height: 450px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #f0f3fa;
+    border: 1px solid white;
+    border-radius: 20px;
+    box-shadow: 1px -1px 13px 3px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    gap: 10px;
+}
+
+.aeris-logo {
+    width: 45px;
+}
+
+.logo-text {
+    display: inline;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#search-box {
+    width: 200px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #464646;
+}
+
+input[type=submit] {
+    padding: 5px 10px;
+    width: 80px;
+    border-radius: 5px;
+    border: 1px solid #464646;
+}
