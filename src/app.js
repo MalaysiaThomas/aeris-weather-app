@@ -96,7 +96,7 @@ function showPopup() {
   popup.style.display = "block";
   popup.style.zIndex = "2";
 }
-// showPopup()
+showPopup()
 
 function closePopup(event) {
     if ((username.value === null || username.value === "") && (city.value === null || city.value === "")) {

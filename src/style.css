@@ -165,7 +165,7 @@ video {
     height: 140px;
     width: 150px;
     margin: 10px;
-    border-radius: 15px;
+    border-radius: 10px;
     transition: all 400ms ease-in-out;
     text-align: center;
     gap: 20px;
