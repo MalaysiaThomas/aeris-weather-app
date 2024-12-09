@@ -8,6 +8,34 @@ const city = document.getElementById("city")
 const currentTimeDate = new Date()
 const currentDateContainer = document.getElementById("current-date");
 const currentTimeContainer = document.getElementById("current-time");
+const cityNameDisplay = document.getElementById("city-name")
+const description = document.getElementById("description");
+const humidity = document.getElementById("humidity");
+const wind = document.getElementById("wind");
+const currentTemp = document.getElementById("current-temp");
+const fahrenheitButton = document.getElementById("imperial")
+const celciusButton = document.getElementById("metric")
+const apiKey = '34a0b3608792f91t1oc6463e450b7ab0';
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
+
+
+function updateCurrentWeather(response) {
+    console.log(Math.round(response.data.temperature.current))
+    let cityName = response.data.city
+    cityNameDisplay.innerHTML = cityName;
+
+    let currentDescription = response.data.condition.description
+    description.innerHTML = currentDescription
+
+    let humidityLevel = response.data.temperature.humidity
+    humidity.innerHTML = humidityLevel
+
+    let windSpeed = response.data.wind.speed
+    wind.innerHTML = windSpeed
+
+    let temperature = Math.round(response.data.temperature.current);
+    currentTemp.innerHTML = temperature
+}
 
 
 function updateGreeting () {
@@ -27,8 +55,6 @@ function updateUsername () {
     usernameFormatted = user.charAt(0).toUpperCase() + user.slice(1).toLowerCase()
     usernameContainer.innerHTML = usernameFormatted
 }
-
-
 
 function dateFormatter() {
     const daysOfWeek = [
@@ -112,12 +138,31 @@ function closePopup(event) {
       mainContainer.style.position = "relative";
       mainContainer.style.zIndex = "2";
       mainContainer.style.filter = "blur(0)";
+
       updateUsername()
+      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`
+      axios.get(apiUrl).then(updateCurrentWeather);
     }
   }
-
 userDetailSubmitButton.addEventListener("click", closePopup)
 
+function getImperialTemp (response) {
+    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`;
 
+    axios.get(apiUrl).then(updateCurrentWeather);
 
+    let temperature = Math.round(response.data.temperature.current);
+    currentTemp.innerHTML = temperature;
+}
+function getMetricTemp (response) {
+    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(updateCurrentWeather);
+
+    let temperature = Math.round(response.data.temperature.current);
+    currentTemp.innerHTML = temperature;
+}
+
+fahrenheitButton.addEventListener("click", getImperialTemp)
+celciusButton.addEventListener("click", getMetricTemp)
 
