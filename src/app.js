@@ -30,7 +30,7 @@ function updateCurrentWeather(response) {
     let humidityLevel = response.data.temperature.humidity
     humidity.innerHTML = humidityLevel
 
-    let windSpeed = response.data.wind.speed
+    let windSpeed = Math.round(response.data.wind.speed)
     wind.innerHTML = windSpeed
 
     let temperature = Math.round(response.data.temperature.current);
@@ -147,16 +147,24 @@ function closePopup(event) {
 userDetailSubmitButton.addEventListener("click", closePopup)
 
 function getImperialTemp (response) {
-    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`;
+    fahrenheitButton.style.textDecoration = "underline"
+    fahrenheitButton.style.textUnderlineOffset = "3px"
+    celciusButton.style.textDecoration = "none"
 
+    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(updateCurrentWeather);
 
     let temperature = Math.round(response.data.temperature.current);
     currentTemp.innerHTML = temperature;
 }
-function getMetricTemp (response) {
-    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
 
+
+function getMetricTemp (response) {
+    celciusButton.style.textDecoration = "underline";
+    celciusButton.style.textUnderlineOffset = "3px";
+    fahrenheitButton.style.textDecoration = "none";
+
+    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(updateCurrentWeather);
 
     let temperature = Math.round(response.data.temperature.current);
