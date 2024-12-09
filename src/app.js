@@ -15,12 +15,44 @@ const wind = document.getElementById("wind");
 const currentTemp = document.getElementById("current-temp");
 const fahrenheitButton = document.getElementById("imperial")
 const celciusButton = document.getElementById("metric")
+const currentWeatherIcon = document.getElementById("current-weather-icon");
 const apiKey = '34a0b3608792f91t1oc6463e450b7ab0';
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
 
+function checkCity (event) {
+    event.preventDefault()
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(validCityCheck);
+}
+
+function validCityCheck(response) {
+    if (response.data.message === "City not found") {
+        alert("🚨 City not found. Try again.")
+        city.value = ""
+    } else {
+        closePopup()
+    }
+}
+
+function weatherIcon(response) {
+  let apiWeatherDescription = response.data.condition.description;
+
+  if (apiWeatherDescription.includes("rain")) {
+    currentWeatherIcon.src = "media/rainy-6.svg"
+  } else if (apiWeatherDescription.includes("clear")) {
+    currentWeatherIcon.src = "media/day.svg";
+  } else if (apiWeatherDescription.includes("cloud")) {
+    currentWeatherIcon.src = "media/cloudy.svg"
+  } else if (apiWeatherDescription.includes("thunderstorm")) {
+    currentWeatherIcon.src = "media/thunder.svg"
+  } else if (apiWeatherDescription.includes("snow")) {
+    currentWeatherIcon.src = "media/snowy-6.svg"
+  } else if (apiWeatherDescription.includes("mist")) {
+    currentWeatherIcon.src = "media/rainy-2.svg"
+  }
+}
 
 function updateCurrentWeather(response) {
-    console.log(Math.round(response.data.temperature.current))
     let cityName = response.data.city
     cityNameDisplay.innerHTML = cityName;
 
@@ -35,6 +67,8 @@ function updateCurrentWeather(response) {
 
     let temperature = Math.round(response.data.temperature.current);
     currentTemp.innerHTML = temperature
+
+    weatherIcon()
 }
 
 
@@ -124,27 +158,28 @@ function showPopup() {
 }
 showPopup()
 
-function closePopup(event) {
+function closePopup() {
     if ((username.value === null || username.value === "") && (city.value === null || city.value === "")) {
         alert("Enter your name and a city")
-    } else if (username.value === null || username.value === ""){
+    } else if (username.value === null || username.value === "") {
         alert("Enter your name")
-    } else if (city.value === null || city.value === "")  {
-        alert("Enter a city")
+    } else if (city.value === null || city.value === "") {
+      alert("Enter a city");
     } else {
-      event.preventDefault();
       popup.style.display = "hidden";
       popup.style.zIndex = "1";
       mainContainer.style.position = "relative";
       mainContainer.style.zIndex = "2";
       mainContainer.style.filter = "blur(0)";
 
-      updateUsername()
-      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`
+      updateUsername();
+
+      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`;
       axios.get(apiUrl).then(updateCurrentWeather);
+      axios.get(apiUrl).then(weatherIcon);
     }
   }
-userDetailSubmitButton.addEventListener("click", closePopup)
+userDetailSubmitButton.addEventListener("click", checkCity);
 
 function getImperialTemp (response) {
     fahrenheitButton.style.textDecoration = "underline"
