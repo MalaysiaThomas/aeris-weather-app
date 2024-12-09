@@ -7,7 +7,21 @@
     <title>Aeris Weather App</title>
 </head>
 <body>
-    <div class="main-container">
+    
+    <div class="prompt-container">
+        <div id="myPopup" class="popup">
+            <form id="popup-form">
+                <h2>Welcome to Aeris Weather!</h2>
+                <label for="name-label" class="form-question">What's your first name?</label>
+                <input type="text" name="name" id="name" class="user-detail-input"  placeholder="Enter first name here...">
+                <label for="city-label" class="form-question">What city would you like the weather for?</label>
+                <input type="text" name="city" id="city" class="user-detail-input" placeholder="Enter city here..." required>
+                <button type="submit" id="user-detail-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="main-container" class="main-container">
         <div class="nav-container">
             <div class="logo-container">
                 <img src="media/weather.svg" class="aeris-logo" alt="Aeris logo">
@@ -17,7 +31,7 @@
             <div class="search-container">
                 <form>
                     <input type="search" name="search-box" id="search-box" placeholder="Enter a city..." required>
-                    <input type="submit" value="Search">
+                    <button type="submit">Submit</button>
                 </form>
             </div>
         </div>
