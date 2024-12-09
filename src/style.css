@@ -10,9 +10,9 @@ body {
 button {
     padding: 5px 10px;
     width: 80px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #464646;
-    transition: all 400ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
 
 button:hover {
@@ -23,6 +23,10 @@ button:hover {
 h1 {
     margin: 0 0 3px;
     font-size: 35px;
+}
+
+h2 {
+    margin-top: 30px;
 }
 
 footer{
@@ -38,6 +42,21 @@ a {
 hr {
     border: .5px solid #c3cfe2;
     width: 800px;
+}
+
+video {
+  object-fit: cover;
+  height: 130px;
+  width: 140px;
+  border-radius: 50%;
+  border: 1px solid rgb(68, 183, 204);
+  box-shadow: 0px 7px 23px rgba(0, 0, 0, 0.2);
+
+}
+
+.video-container {
+  text-align: center;
+  margin-top: -50px;
 }
 
 
@@ -198,23 +217,30 @@ hr {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: white;
+    background: linear-gradient(0deg, #cde6ef 0%, #1271bf 100%);
     padding: 70px 50px;
-    border: 1px solid #ddd;
+    border: 1px solid #b8ceef;
     border-radius: 15px;
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
   }
 
   .form-question {
-    margin-bottom: -5px;
+    margin-bottom: -10px;
   }
 
   .user-detail-input {
     border: none;
-    border-bottom: 1px solid black;
-    margin-bottom: 30px;
+    border-bottom: 1px solid rgb(9, 100, 169);
+    margin-bottom: 10px;
     width: 180px;
     text-align: center;
+    border-radius: 10px;
+    padding: 10px 15px;
+    transition: all 200ms ease-in-out;
+  }
+
+  .user-detail-input:hover {
+    scale: 1.05;
   }
 
 
@@ -223,4 +249,6 @@ hr {
     flex-direction: column;
     gap: 20px;
     align-items: center;
+    background: url(media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4);
+    background-size: cover;
 }

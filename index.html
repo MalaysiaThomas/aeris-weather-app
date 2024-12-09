@@ -10,12 +10,15 @@
     
     <div class="prompt-container">
         <div id="myPopup" class="popup">
+            <div class="video-container">
+                <video src="media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4" playsinline autoplay muted loop></video>
+            </div>
             <form id="popup-form">
                 <h2>Welcome to Aeris Weather!</h2>
-                <label for="name-label" class="form-question">What's your first name?</label>
-                <input type="text" name="name" id="name" class="user-detail-input"  placeholder="Enter first name here...">
-                <label for="city-label" class="form-question">What city would you like the weather for?</label>
-                <input type="text" name="city" id="city" class="user-detail-input" placeholder="Enter city here..." required>
+                <label for="name" class="form-question">What's your first name?</label>
+                <input type="text" name="name" id="name" class="user-detail-input"  placeholder="Enter first name here..." autocomplete="name" minlength="1" required>
+                <label for="city" class="form-question">What city would you like the weather for?</label>
+                <input type="text" name="city" id="city" class="user-detail-input" placeholder="Enter city here..." minlength="1" required>
                 <button type="submit" id="user-detail-submit">Submit</button>
             </form>
         </div>
@@ -84,6 +87,8 @@
         </footer>
     <!-- <footer>
             <a href="https://iconscout.com/icons/weather" class="text-underline font-size-sm" target="_blank">weather</a> by <a href="https://iconscout.com/contributors/iconshadow" class="text-underline font-size-sm">Colourcreatype</a> on <a href="https://iconscout.com" class="text-underline font-size-sm">IconScout</a>
+
+            <a href="https://www.vecteezy.com/free-videos/weather-animation">Weather Animation Stock Videos by Vecteezy</a>
 
         </footer> -->
     </div>    
