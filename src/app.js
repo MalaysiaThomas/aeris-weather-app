@@ -1,4 +1,9 @@
 const mainContainer = document.getElementById("main-container");
+const currentWeatherContainer = document.getElementById(
+  "current-weather-container"
+);
+const footer = document.getElementById("footer")
+const forecastContainer = document.getElementById("forecast-container");
 const greeting = document.getElementById("day-greeting")
 const usernameContainer = document.getElementById("username-container");
 const popup = document.getElementById("myPopup");
@@ -16,23 +21,147 @@ const currentTemp = document.getElementById("current-temp");
 const fahrenheitButton = document.getElementById("imperial")
 const celciusButton = document.getElementById("metric")
 const currentWeatherIcon = document.getElementById("current-weather-icon");
+const searchBox = document.getElementById("search-box");
+const searchBoxSubmitButton = document.getElementById(
+  "search-box-submit-button"
+);
+let popupVisible = true
 const apiKey = '34a0b3608792f91t1oc6463e450b7ab0';
 let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
 
+
+function getSearchValue(event) {
+  event.preventDefault()
+  let searchInput = searchBox.value
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchInput}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(validCityCheck);
+}
+searchBoxSubmitButton.addEventListener("click", getSearchValue)
+
+
+
+
 function checkCity (event) {
     event.preventDefault()
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(validCityCheck);
 }
 
+
+// function tester() {
+// currentWeatherContainer.style.display = "flex";
+// currentWeatherIcon.style.display = "block";
+// forecastContainer.style.display = "flex";
+// // cityNameDisplay.innerHTML = searchBox.value
+
+// updateCurrentWeather()
+
+// }
+
+// function cityNotFound() {
+//     currentWeatherContainer.style.display = "none"
+//     currentWeatherIcon.style.display = "none"
+//     forecastContainer.style.display = "none"
+//     city.value = ""
+//     searchBox.value = ""
+
+//     let errorMessageDiv = document.createElement("div")
+//     let errorMessage = document.createElement("p")
+//     errorMessage.innerHTML = "City not found"
+//     errorMessageDiv.appendChild(errorMessage)
+
+//     mainContainer.insertBefore(errorMessageDiv, footer)
+
+//     errorMessageDiv.style.textAlign = "center"
+//     errorMessageDiv.style.width = "800px"
+//     errorMessageDiv.style.margin = "110px auto 50px"
+//     errorMessageDiv.style.height = "305px"
+//     errorMessageDiv.style.display = "flex"
+//     errorMessageDiv.style.alignItems = "center"
+//     errorMessageDiv.style.justifyContent = "center"
+
+//     searchBoxSubmitButton.addEventListener("click", tester);
+
+    
+// }
+
 function validCityCheck(response) {
+  // let errorMessageDiv = document.createElement("div");
+  // let errorMessage = document.createElement("p");
     if (response.data.message === "City not found") {
         alert("🚨 City not found. Try again.")
-        city.value = ""
+
+        city.value = "";
+        searchBox.value = "";
+
+        // let cityName = "City not found";
+        // cityNameDisplay.innerHTML = cityName;
+
+        // let currentDescription = "N/A";
+        // description.innerHTML = currentDescription;
+
+        // let humidityLevel = "N/A";
+        // humidity.innerHTML = humidityLevel;
+
+        // let windSpeed = "N/A";
+        // wind.innerHTML = windSpeed;
+
+        // let temperature = "N/A";
+        // currentTemp.innerHTML = temperature;
+
+    }
+        // errorMessageDiv.id = "errorMessageContainer";
+        // errorMessageDiv.appendChild(errorMessage)
+        // errorMessage.innerHTML = "City not found";
+
+        // currentWeatherContainer.appendChild(errorMessageDiv)
+        // forecastContainer.style.display = "none"
+        // currentWeatherContainer.style.height = "300px"
+
+
+        // // currentWeatherContainer.style.display = "none";
+        // currentWeatherIcon.style.display = "none";
+        // forecastContainer.style.display = "none";
+
+        // city.value = "";
+        // searchBox.value = "";
+
+        // errorMessage.innerHTML = "City not found";
+        // errorMessageDiv.appendChild(errorMessage);
+
+        // mainContainer.insertBefore(errorMessageDiv, footer);
+
+        // errorMessageDiv.style.textAlign = "center";
+        // errorMessageDiv.style.width = "800px";
+        // errorMessageDiv.style.margin = "110px auto 50px";
+        // errorMessageDiv.style.height = "305px";
+        // errorMessageDiv.style.display = "flex";
+        // errorMessageDiv.style.alignItems = "center";
+        // errorMessageDiv.style.justifyContent = "center";
+    // } else {
+    //   // while (mainContainer.errorMessageDiv) {
+    //   //   mainContainer.removeChild(mainContainer.errorMessageDiv)
+    //   // }
+    //   // currentWeatherContainer.replaceChildren(currentWeatherContainer, currentWeatherIcon, forecastContainer);
+
+    //   currentWeatherContainer.style.display = "flex";
+    //   currentWeatherIcon.style.display = "block";
+    //   forecastContainer.style.display = "flex";
+      
+    // }
+
+    if (popupVisible) {
+      closePopup()
     } else {
-        closePopup()
+      let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchBox.value}&key=${apiKey}&units=imperial`;
+      axios.get(apiUrl).then(updateCurrentWeather);
+      axios.get(apiUrl).then(weatherIcon);
+
     }
 }
+
+userDetailSubmitButton.addEventListener("click", checkCity);
+
 
 function weatherIcon(response) {
   let apiWeatherDescription = response.data.condition.description;
@@ -53,22 +182,46 @@ function weatherIcon(response) {
 }
 
 function updateCurrentWeather(response) {
-    let cityName = response.data.city
-    cityNameDisplay.innerHTML = cityName;
 
-    let currentDescription = response.data.condition.description
-    description.innerHTML = currentDescription
+    if (response.data.message === "City not found") {
+      // alert("🚨 City not found. Try again.");
 
-    let humidityLevel = response.data.temperature.humidity
-    humidity.innerHTML = humidityLevel
+      city.value = "";
+      searchBox.value = "";
 
-    let windSpeed = Math.round(response.data.wind.speed)
-    wind.innerHTML = windSpeed
+      let cityName = "City not found";
+      cityNameDisplay.innerHTML = cityName;
 
-    let temperature = Math.round(response.data.temperature.current);
-    currentTemp.innerHTML = temperature
+      let currentDescription = "N/A";
+      description.innerHTML = currentDescription;
 
-    weatherIcon()
+      let humidityLevel = "N/A";
+      humidity.innerHTML = humidityLevel;
+
+      let windSpeed = "N/A";
+      wind.innerHTML = windSpeed;
+
+      let temperature = "N/A";
+      currentTemp.innerHTML = temperature;
+    } else {
+      
+      let cityName = response.data.city
+      cityNameDisplay.innerHTML = cityName;
+  
+      let currentDescription = response.data.condition.description
+      description.innerHTML = currentDescription
+  
+      let humidityLevel = response.data.temperature.humidity
+      humidity.innerHTML = humidityLevel
+  
+      let windSpeed = Math.round(response.data.wind.speed)
+      wind.innerHTML = windSpeed
+  
+      let temperature = Math.round(response.data.temperature.current);
+      currentTemp.innerHTML = temperature
+  
+      weatherIcon()
+    }
 }
 
 
@@ -155,6 +308,8 @@ function showPopup() {
 
   popup.style.display = "block";
   popup.style.zIndex = "2";
+
+  popupVisible = true
 }
 showPopup()
 
@@ -171,6 +326,7 @@ function closePopup() {
       mainContainer.style.position = "relative";
       mainContainer.style.zIndex = "2";
       mainContainer.style.filter = "blur(0)";
+      popupVisible = false
 
       updateUsername();
 
@@ -179,27 +335,25 @@ function closePopup() {
       axios.get(apiUrl).then(weatherIcon);
     }
   }
-userDetailSubmitButton.addEventListener("click", checkCity);
 
 function getImperialTemp (response) {
     fahrenheitButton.style.textDecoration = "underline"
     fahrenheitButton.style.textUnderlineOffset = "3px"
     celciusButton.style.textDecoration = "none"
 
-    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=imperial`;
+    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchBox.value}&key=${apiKey}&units=imperial`;
     axios.get(apiUrl).then(updateCurrentWeather);
 
     let temperature = Math.round(response.data.temperature.current);
     currentTemp.innerHTML = temperature;
 }
 
-
 function getMetricTemp (response) {
     celciusButton.style.textDecoration = "underline";
     celciusButton.style.textUnderlineOffset = "3px";
     fahrenheitButton.style.textDecoration = "none";
 
-    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city.value}&key=${apiKey}&units=metric`;
+    apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchBox.value}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(updateCurrentWeather);
 
     let temperature = Math.round(response.data.temperature.current);

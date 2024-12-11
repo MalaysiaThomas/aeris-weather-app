@@ -35,7 +35,7 @@
             <div class="search-container">
                 <form>
                     <input type="search" name="search-box" id="search-box" placeholder="Enter a city..." required>
-                    <button type="submit">Submit</button>
+                    <button type="submit" id="search-box-submit-button">Submit</button>
                 </form>
             </div>
         </div>
@@ -51,8 +51,8 @@
             <hr>
         </div>
 
-        <div class="current-weather-container">
-            <div class="left-container">
+        <div class="current-weather-container" id="current-weather-container">
+            <div class="left-container current-weather">
                 <section id="city-name">
                     <h1>N/A</h1>
                 </section>
@@ -62,18 +62,18 @@
                     <p>Wind: <span class="current-weather-detail" id="wind">N/A</span></p>
                 </section>
             </div>
-            <div class="right-container">
+            <div class="current-weather-icon-container current-weather">
+                <img src="media/day.svg" alt="current weather icon" id="current-weather-icon">
+            </div>
+            <div class="right-container current-weather">
                 <span id="current-temp">#</span>
                 <button class="unit" id="imperial">&deg;F</button>
                 <button class="unit" id="metric">&deg;C</button>
             </div>
         </div>
 
-        <div class="current-weather-icon-container">
-            <img src="media/day.svg" alt="current weather icon" id="current-weather-icon">
-        </div>
 
-        <div class="forecast-container">
+        <div class="forecast-container" id="forecast-container">
             <section class="future-forecast"><p class="forecast-day">Insert Day</p><img src="media/weather.svg" alt="" class="forecast-icon"><section class="forecast-temp"><p class="max-temp">#&deg;</p><p class="min-temp">#&deg;</p></section></section>
             <section class="future-forecast"><p class="forecast-day">Insert Day</p><img src="media/weather.svg" alt="" class="forecast-icon"><section class="forecast-temp"><p class="max-temp">#&deg;</p><p class="min-temp">#&deg;</p></section></section>
             <section class="future-forecast"><p class="forecast-day">Insert Day</p><img src="media/weather.svg" alt="" class="forecast-icon"><section class="forecast-temp"><p class="max-temp">#&deg;</p><p class="min-temp">#&deg;</p></section></section>
@@ -82,7 +82,7 @@
             <section class="future-forecast"><p class="forecast-day">Insert Day</p><img src="media/weather.svg" alt="" class="forecast-icon"><section class="forecast-temp"><p class="max-temp">#&deg;</p><p class="min-temp">#&deg;</p></section></section>
         </div>
 
-        <footer>
+        <footer id="footer">
             <!-- update Netlify link -->
             <p>Coded by <a href="https://github.com/MalaysiaThomas" target="_blank" rel="noreferrer noopener">Malaysia Thomas</a> and is <a href="https://github.com/MalaysiaThomas/aeris-weather-app" target="_blank" rel="noreferrer noopener">open-sourced on GitHub</a> and <a href="https://app.netlify.com/teams/malaysiathomas/sites" target="_blank" rel="noreferrer noopener">hosted on Netlify</a></p>
         </footer>

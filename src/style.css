@@ -106,9 +106,19 @@ video {
 
 .current-weather-container {
     display: flex;
-    justify-content: space-between;
-    align-items: top;
+    justify-content: center;
     padding: 0 45px;
+    align-items: center;
+}
+
+.current-weather {
+    width: 220px;
+}
+
+.right-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 240px;
 }
 
 .weather-details > p {
@@ -120,18 +130,18 @@ video {
     color: rgb(102, 195, 249);
 }
 
-.right-container {
-    display: flex;
-}
 
 .unit {
-    height: 40px;
-    width: 40px;
-    /* padding: 5px 10px; */
-    background: transparent;
+    height: 30px;
+    width: 30px;
     border-radius: 100%;
-    border: none;
+    border: 1px solid transparent;
+    background-color: #F0F3FA;
     transition: all 300ms ease-in-out;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 5px;
 }
 
 .unit:hover {
@@ -142,8 +152,6 @@ video {
 }
 
 .current-weather-icon-container{
-    width: 200px;
-    margin: -130px auto 0;
     display: flex;
     justify-content: center;
 }
@@ -153,7 +161,7 @@ video {
     align-items: center;
     height: 150px;
     width: 800px;
-    margin: 20px auto;
+    margin: 10px auto;
     padding: 10px;
 }
 
@@ -211,7 +219,7 @@ video {
 #current-temp {
     font-size: 100px;
     font-weight: 700;
-    padding: 0 20px;
+    padding: 0 5px;
 }
 
 #imperial {
@@ -270,4 +278,14 @@ video {
     align-items: center;
     background: url(media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4);
     background-size: cover;
+}
+
+#errorMessageContainer {
+    text-align: center;
+    width: 800px;
+    height: 305px;
+    margin: 110px auto 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
