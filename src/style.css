@@ -156,51 +156,7 @@ video {
     justify-content: center;
 }
 
-.forecast-container{
-    display: flex;
-    align-items: center;
-    height: 150px;
-    width: 800px;
-    margin: 10px auto;
-    padding: 10px;
-}
 
-.future-forecast {
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #a1b8ca ;
-    background: linear-gradient(180deg, #f5f7fa 0%, #c3cfe2 100%);;
-    height: 140px;
-    width: 150px;
-    margin: 10px;
-    border-radius: 10px;
-    transition: all 400ms ease-in-out;
-    text-align: center;
-    gap: 20px;
-}
-
-.future-forecast:hover {
-    scale: 1.1;
-    background: linear-gradient(180deg, #fdfbfb 0%, #ebedee 100%);
-    border: 1px solid #e9e9eb;
-    box-shadow: 0px 3px 11px 2px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.future-forecast:active{
-    scale: .9;
-}
-
-.forecast-temp {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-}
-
-.forecast-icon {
-    width: 60px;
-    margin: -30px auto -25px;
-}
 
 
 #search-box {

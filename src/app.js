@@ -3,7 +3,6 @@ const currentWeatherContainer = document.getElementById(
   "current-weather-container"
 );
 const footer = document.getElementById("footer")
-const forecastContainer = document.getElementById("forecast-container");
 const greeting = document.getElementById("day-greeting")
 const usernameContainer = document.getElementById("username-container");
 const popup = document.getElementById("myPopup");
@@ -311,7 +310,7 @@ function showPopup() {
 
   popupVisible = true
 }
-showPopup()
+// showPopup()
 
 function closePopup() {
     if ((username.value === null || username.value === "") && (city.value === null || city.value === "")) {
