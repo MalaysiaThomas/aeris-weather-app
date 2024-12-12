@@ -1,7 +1,8 @@
+/*  ELEMENT STYLING */
 body {
+  height: 100dvh;
   background-image: url("../media/Blue-Castle-Sky-Wallpaper.png");
   background-size: cover;
-  height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -13,22 +14,19 @@ button {
   padding: 5px 10px;
   width: 80px;
   border-radius: 10px;
-  border: 1px solid #464646;
+  border: 1px solid #03283f;
+  background-color: #03283f;
+  color: #FFFFFF;  
   transition: all 200ms ease-in-out;
-font-family: "Parkinsans", sans-serif;
-font-size: 12px;
-
+  font-family: "Parkinsans", sans-serif;
+  font-size: 12px;
 }
 
 button:hover {
-  background-color: #03283f;
-  color: #FFFFFF;
+  background-color: #FFFFFF;
+  color: #03283f;
   cursor: pointer;
-}
-
-h1 {
-  margin: 0 0 3px;
-  font-size: 50px;
+  scale: 1.05;
 }
 
 h2 {
@@ -51,13 +49,15 @@ hr {
   width: 500px;
 }
 
-
+/* CLASS STYLING */
 .popup-image-container {
   text-align: center;
   margin: -50px auto -40px;
 }
 
 .main-container {
+  display: flex;
+  flex-direction: column;
   width: 600px;
   height: 400px;
   margin: 0 auto;
@@ -66,8 +66,6 @@ hr {
   border: 1px solid transparent;
   border-radius: 20px;
   box-shadow: 1px -1px 13px 3px rgba(44, 44, 44, 0.461);
-  display: flex;
-  flex-direction: column;
 }
 
 .logo-container {
@@ -80,9 +78,7 @@ hr {
 }
 
 .logo-text {
-  display: inline;
   font-family: "Parkinsans", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
   font-size: 15px;
@@ -98,7 +94,7 @@ hr {
 .greeting-container {
   text-align: center;
   line-height: 5px;
-  margin: 20px 0 20px;
+  margin: 20px 0 0;
 }
 
 .current-time-date-container {
@@ -131,27 +127,28 @@ hr {
 }
 
 .current-weather-detail {
-  color: rgb(23, 156, 233);
+  color: rgb(24, 114, 217);
 }
 
 .unit {
-  height: 30px;
-  width: 30px;
-  border-radius: 100%;
-  border: 1px solid transparent;
-  background-color: transparent;
-  transition: all 200ms ease-in-out;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
   margin-top: 10px;
+  height: 30px;
+  width: 30px;
+  color: #03283f;
+  border-radius: 100%;
+  border: 1px solid transparent;
+  background-color: transparent;
+  transition: all 200ms ease-in-out;
 }
 
 .unit:hover {
-  color: #1271bf;
-  border: 1.5px solid #03283f;
-  background-color: #e5ebf0;
+  color: #FFFFFF;
+  border: 1px solid #03283f;
+  background-color: #03283f;
 }
 
 .current-weather-icon-container {
@@ -159,6 +156,41 @@ hr {
   justify-content: center;
 }
 
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(0deg, #b5e1f5e2 35%, #c4e3f0e4 55%,  #d9e6efdb 65%, #eaf1f3d0 85%);
+  padding: 70px 50px;
+  border: 5px double #08577f;
+  border-radius: 200px 200px 10px 10px;
+  box-shadow: 0px 15px 15px #05334b80;
+  color: #03283f;
+  font-weight: 700;
+  height: 360px;
+}
+
+.form-question {
+  margin-bottom: -10px;
+}
+
+.form-input {
+  border: none;
+  border-bottom: 1px solid rgb(9, 100, 169);
+  margin-bottom: 10px;
+  width: 180px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px 15px;
+  transition: all 200ms ease-in-out;
+}
+
+.form-input:hover {
+  scale: 1.05;
+}
+
+/* ID STYLING */
 #search-box {
   width: 150px;
   padding: 5px 10px;
@@ -190,73 +222,14 @@ hr {
   scale: 1.2;
 }
 
-.popup {
-  display: none;
-  background-color: transparent;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: linear-gradient(0deg, #b5e1f5e2 35%, #c4e3f0e4 55%,  #d9e6efdb 65%, #eaf1f3d0 85%);
-  padding: 70px 50px;
-  border: 5px double #08577f;
-  border-radius: 200px 200px 10px 10px;
-  box-shadow: 0px 15px 15px #05334b80;
-  color: #03283f;
-  font-weight: 700;
-  height: 360px;
-}
-
-.form-question {
-  margin-bottom: -10px;
-}
-
-.form-input {
-  border: none;
-  border-bottom: 1px solid rgb(9, 100, 169);
-  margin-bottom: 10px;
-  width: 180px;
-  text-align: center;
-  border-radius: 10px;
-  padding: 10px 15px;
-  transition: all 200ms ease-in-out;
-  
-}
-
-.form-input:hover {
-  scale: 1.05;
-}
 
 #popup-form {
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  background-size: cover;
-}
-
-#errorMessageContainer {
-  text-align: center;
-  width: 800px;
-  height: 305px;
-  margin: 110px auto 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 #popup-image {
     width: 120px;
-}
-
-#form-submit{
-    border: 1px solid #03283f;
-    background-color: #FFFFFF;
-    color: #03283f;
-    transition: all 200ms ease-in-out;
-}
-
-#form-submit:hover{
-    background-color: #03283f;
-    color: #FFFFFF;
 }
