@@ -8,19 +8,21 @@
     <title>Aeris Weather App</title>
 </head>
 <body>
-    
     <div class="prompt-container">
-        <div id="myPopup" class="popup">
+        <div id="entry-prompt-popup" class="popup">
             <div class="video-container">
                 <video src="media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4" playsinline autoplay muted loop></video>
             </div>
             <form id="popup-form">
-                <h2>Welcome to Aeris Weather!</h2>
+                <h2 id="popup-form-header">Welcome to Aeris Weather!</h2>
+
                 <label for="name" class="form-question">What's your first name?</label>
-                <input type="text" name="name" id="name" class="user-detail-input"  placeholder="Enter first name here..." autocomplete="given-name" minlength="1" required>
+                <input type="text" name="name" id="name" class="form-input"  placeholder="Enter first name here..." autocomplete="given-name" minlength="1" required>
+
                 <label for="city" class="form-question">What city would you like the weather for?</label>
-                <input type="text" name="city" id="city" class="user-detail-input" placeholder="Enter city here..." minlength="1" required>
-                <button type="submit" id="user-detail-submit">Submit</button>
+                <input type="text" name="city" id="city" class="form-input" placeholder="Enter city here..." minlength="1" required>
+
+                <button type="submit" id="form-submit">Submit</button>
             </form>
         </div>
     </div>
@@ -44,7 +46,7 @@
             <p><span id="day-greeting">[Greeting]</span>, <span id="username-container">[username]</span>!</p>
             <section class="current-time-date-container">
                 <p id="current-date">
-                    Day, Month Date Time
+                    Day, Month Date
                 </p>
                 <p id="current-time">Time</p>
             </section>
@@ -57,7 +59,7 @@
                     <h1>N/A</h1>
                 </section>
                 <section class="weather-details">
-                    <p><span id="description">N/A</span></p>
+                    <p><span class="current-weather-detail" id="description">N/A</span></p>
                     <p>Humidity: <span class="current-weather-detail" id="humidity">N/A</span></p>
                     <p>Wind: <span class="current-weather-detail" id="wind">N/A</span></p>
                 </section>
@@ -72,9 +74,7 @@
             </div>
         </div>
 
-
         <footer id="footer">
-            <!-- update Netlify link -->
             <p>Coded by <a href="https://github.com/MalaysiaThomas" target="_blank" rel="noreferrer noopener">Malaysia Thomas</a> and is <a href="https://github.com/MalaysiaThomas/aeris-weather-app" target="_blank" rel="noreferrer noopener">open-sourced on GitHub</a> and <a href="https://app.netlify.com/teams/malaysiathomas/sites" target="_blank" rel="noreferrer noopener">hosted on Netlify</a></p>
         </footer>
 

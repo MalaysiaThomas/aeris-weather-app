@@ -1,47 +1,47 @@
 body {
-    background: linear-gradient(#D7DDE8, #757F9A, #494c54);
-    height: 100dvh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    margin: 0;
+  background: linear-gradient(#d7dde8, #757f9a, #494c54);
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  margin: 0;
 }
 
 button {
-    padding: 5px 10px;
-    width: 80px;
-    border-radius: 10px;
-    border: 1px solid #464646;
-    transition: all 200ms ease-in-out;
+  padding: 5px 10px;
+  width: 80px;
+  border-radius: 10px;
+  border: 1px solid #464646;
+  transition: all 200ms ease-in-out;
 }
 
 button:hover {
-    background: #c8c8c8;
-    cursor: pointer;
+  background: #c8c8c8;
+  cursor: pointer;
 }
 
 h1 {
-    margin: 0 0 3px;
-    font-size: 35px;
+  margin: 0 0 3px;
+  font-size: 35px;
 }
 
 h2 {
-    margin-top: 30px;
+  margin-top: 30px;
 }
 
-footer{
-    text-align: center;
-    margin: 10px;
-    font-size: 12px;
+footer {
+  text-align: center;
+  margin: 10px;
+  font-size: 12px;
 }
 
 a {
-    color: #6f7173;
+  color: #6f7173;
 }
 
 hr {
-    border: .5px solid #c3cfe2;
-    width: 800px;
+  border: 0.5px solid #c3cfe2;
+  width: 800px;
 }
 
 video {
@@ -51,7 +51,6 @@ video {
   border-radius: 50%;
   border: 1px solid rgb(68, 183, 204);
   box-shadow: 0px 7px 23px rgba(0, 0, 0, 0.2);
-
 }
 
 .video-container {
@@ -59,189 +58,178 @@ video {
   margin-top: -50px;
 }
 
-
 .main-container {
-    width: 900px;
-    height: 480px;
-    margin: 0 auto;
-    padding: 30px;
-    background: #f0f3fa;
-    border: 1px solid white;
-    border-radius: 20px;
-    box-shadow: 1px -1px 13px 3px rgba(0, 0, 0, 0.1);
+  width: 900px;
+  height: 480px;
+  margin: 0 auto;
+  padding: 30px;
+  background: #f0f3fa;
+  border: 1px solid white;
+  border-radius: 20px;
+  box-shadow: 1px -1px 13px 3px rgba(0, 0, 0, 0.1);
 }
 
 .logo-container {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .aeris-logo {
-    width: 45px;
+  width: 45px;
 }
 
 .logo-text {
-    display: inline;
+  display: inline;
 }
 
 .nav-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.greeting-container{
-    text-align: center;
-    line-height: 5px;
-    margin: 20px 0 20px;
-
+.greeting-container {
+  text-align: center;
+  line-height: 5px;
+  margin: 20px 0 20px;
 }
 
-.current-time-date-container{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: -15px;
+.current-time-date-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: -15px;
 }
 
 .current-weather-container {
-    display: flex;
-    justify-content: center;
-    padding: 0 45px;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 0 45px;
+  align-items: center;
 }
 
 .current-weather {
-    width: 220px;
+  width: 220px;
 }
 
 .right-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 240px;
+  display: flex;
+  justify-content: flex-end;
+  width: 240px;
 }
 
 .weather-details > p {
-    margin: 0;
-    font-size: 14px;
+  margin: 0;
+  font-size: 14px;
 }
 
 .current-weather-detail {
-    color: rgb(102, 195, 249);
+  color: rgb(102, 195, 249);
 }
 
-
 .unit {
-    height: 30px;
-    width: 30px;
-    border-radius: 100%;
-    border: 1px solid transparent;
-    background-color: #F0F3FA;
-    transition: all 300ms ease-in-out;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 5px;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: 1px solid transparent;
+  background-color: #f0f3fa;
+  transition: all 300ms ease-in-out;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 5px;
 }
 
 .unit:hover {
-    color: #1271bf;    
-    border: 1px solid rgb(27, 26, 26);
-    background-color: #bcbfc2;
-
+  color: #1271bf;
+  border: 1px solid rgb(27, 26, 26);
+  background-color: #bcbfc2;
 }
 
-.current-weather-icon-container{
-    display: flex;
-    justify-content: center;
+.current-weather-icon-container {
+  display: flex;
+  justify-content: center;
 }
-
-
-
 
 #search-box {
-    width: 200px;
-    padding: 5px 10px;
-    border-radius: 10px;
-    border: 1px solid #464646;
-    transition: all 200ms ease-in-out;
+  width: 200px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  border: 1px solid #464646;
+  transition: all 200ms ease-in-out;
 }
 
 #search-box:hover {
-    background-color: #e5ebf0;
+  background-color: #e5ebf0;
 }
 
-
 #current-temp {
-    font-size: 100px;
-    font-weight: 700;
-    padding: 0 5px;
+  font-size: 100px;
+  font-weight: 700;
+  padding: 0 5px;
 }
 
 #imperial {
-    text-decoration: underline;
-    text-underline-offset: 3px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
-
 
 #current-weather-icon {
-    width: 140px;
-    transition: all 300ms ease-in-out;
+  width: 140px;
+  transition: all 300ms ease-in-out;
 }
 
-#current-weather-icon:hover{
-    scale: 1.2;
+#current-weather-icon:hover {
+  scale: 1.2;
 }
 
+.popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(0deg, #cde6ef 0%, #1271bf 100%);
+  padding: 70px 50px;
+  border: 1px solid #b8ceef;
+  border-radius: 15px;
+  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
+}
 
- .popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: linear-gradient(0deg, #cde6ef 0%, #1271bf 100%);
-    padding: 70px 50px;
-    border: 1px solid #b8ceef;
-    border-radius: 15px;
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
-  }
+.form-question {
+  margin-bottom: -10px;
+}
 
-  .form-question {
-    margin-bottom: -10px;
-  }
+.form-input {
+  border: none;
+  border-bottom: 1px solid rgb(9, 100, 169);
+  margin-bottom: 10px;
+  width: 180px;
+  text-align: center;
+  border-radius: 10px;
+  padding: 10px 15px;
+  transition: all 200ms ease-in-out;
+}
 
-  .user-detail-input {
-    border: none;
-    border-bottom: 1px solid rgb(9, 100, 169);
-    margin-bottom: 10px;
-    width: 180px;
-    text-align: center;
-    border-radius: 10px;
-    padding: 10px 15px;
-    transition: all 200ms ease-in-out;
-  }
-
-  .user-detail-input:hover {
-    scale: 1.05;
-  }
-
+.form-input:hover {
+  scale: 1.05;
+}
 
 #popup-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    background: url(media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4);
-    background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  background: url(media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4);
+  background-size: cover;
 }
 
 #errorMessageContainer {
-    text-align: center;
-    width: 800px;
-    height: 305px;
-    margin: 110px auto 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  text-align: center;
+  width: 800px;
+  height: 305px;
+  margin: 110px auto 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
