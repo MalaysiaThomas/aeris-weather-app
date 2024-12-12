@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad+Flux:slnt,wght@3,100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Parkinsans:wght@300..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="src/style.css">
     <title>Aeris Weather App</title>
 </head>
 <body>
     <div class="prompt-container">
         <div id="entry-prompt-popup" class="popup">
-            <div class="video-container">
-                <video src="media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4" playsinline autoplay muted loop></video>
+            <div class="popup-image-container">
+                <!-- <video src="media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4" playsinline autoplay muted loop></video> -->
+                <img src="media/day.svg" alt="sun" id="popup-image">
             </div>
             <form id="popup-form">
                 <h2 id="popup-form-header">Welcome to Aeris Weather!</h2>
@@ -31,7 +35,7 @@
         <div class="nav-container">
             <div class="logo-container">
                 <img src="media/weather.svg" class="aeris-logo" alt="Aeris logo">
-                <p class="logo-text">Aeris Weather</p>
+                <p class="logo-text">AERIS WEATHER</p>
             </div>
 
             <div class="search-container">

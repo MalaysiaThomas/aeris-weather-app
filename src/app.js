@@ -129,13 +129,14 @@ function showPopup() {
   mainContainer.style.position = "relative";
   mainContainer.style.zIndex = "1";
   mainContainer.style.filter = "blur(40px)";
+  mainContainer.style.background = "transparent"
 
   popup.style.display = "block";
   popup.style.zIndex = "2";
 
   popupVisible = true;
 }
-// showPopup();
+showPopup();
 
 function closePopup() {
   if (
@@ -148,11 +149,15 @@ function closePopup() {
   } else if (city.value === null || city.value === "") {
     alert("Enter a city");
   } else {
-    popup.style.display = "hidden";
-    popup.style.zIndex = "1";
+
+    let promptContainer = document.querySelector(".prompt-container")
+    promptContainer.remove(popup)
+    // popup.style.display = "hidden";
+    // popup.style.zIndex = "-2";
     mainContainer.style.position = "relative";
     mainContainer.style.zIndex = "2";
     mainContainer.style.filter = "blur(0)";
+    mainContainer.style.background = "rgba(255, 255, 255, 0.903)";
     popupVisible = false;
 
     updateUsername();

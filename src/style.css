@@ -1,10 +1,12 @@
 body {
-  background: linear-gradient(#d7dde8, #757f9a, #494c54);
+  background-image: url("../media/Blue-Castle-Sky-Wallpaper.png");
+  background-size: cover;
   height: 100dvh;
   overflow: hidden;
   display: flex;
   align-items: center;
   margin: 0;
+  font-family: "Parkinsans", sans-serif;
 }
 
 button {
@@ -13,6 +15,8 @@ button {
   border-radius: 10px;
   border: 1px solid #464646;
   transition: all 200ms ease-in-out;
+font-family: "Parkinsans", sans-serif;
+
 }
 
 button:hover {
@@ -27,6 +31,7 @@ h1 {
 
 h2 {
   margin-top: 30px;
+  border-bottom: 1.5px solid #03283f;
 }
 
 footer {
@@ -41,32 +46,24 @@ a {
 
 hr {
   border: 0.5px solid #c3cfe2;
-  width: 800px;
+  width: 500px;
 }
 
-video {
-  object-fit: cover;
-  height: 130px;
-  width: 140px;
-  border-radius: 50%;
-  border: 1px solid rgb(68, 183, 204);
-  box-shadow: 0px 7px 23px rgba(0, 0, 0, 0.2);
-}
 
-.video-container {
+.popup-image-container {
   text-align: center;
-  margin-top: -50px;
+  margin: -50px auto -40px;
 }
 
 .main-container {
-  width: 900px;
+  width: 600px;
   height: 400px;
   margin: 0 auto;
   padding: 30px;
-  background: #f0f3fa;
-  border: 1px solid white;
+  background: rgba(255, 255, 255, 0.903);
+  border: 1px solid transparent;
   border-radius: 20px;
-  box-shadow: 1px -1px 13px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px -1px 13px 3px rgba(44, 44, 44, 0.461);
   display: flex;
   flex-direction: column;
 }
@@ -82,6 +79,11 @@ video {
 
 .logo-text {
   display: inline;
+  font-family: "Parkinsans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 20px;
 }
 
 .nav-container {
@@ -154,7 +156,7 @@ video {
 }
 
 #search-box {
-  width: 200px;
+  width: 150px;
   padding: 5px 10px;
   border-radius: 10px;
   border: 1px solid #464646;
@@ -187,15 +189,19 @@ video {
 
 .popup {
   display: none;
+  background-color: transparent;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(0deg, #cde6ef 0%, #1271bf 100%);
+  background: linear-gradient(0deg, #b5e1f5e2 35%, #c4e3f0e4 55%,  #d9e6efdb 65%, #eaf1f3d0 85%);
   padding: 70px 50px;
-  border: 1px solid #b8ceef;
-  border-radius: 15px;
-  box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
+  border: 5px double #08577f;
+  border-radius: 200px 200px 10px 10px;
+  box-shadow: 0px 15px 15px #05334b80;
+  color: #03283f;
+  font-weight: 700;
+  height: 360px;
 }
 
 .form-question {
@@ -211,6 +217,7 @@ video {
   border-radius: 10px;
   padding: 10px 15px;
   transition: all 200ms ease-in-out;
+  
 }
 
 .form-input:hover {
@@ -222,7 +229,6 @@ video {
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  background: url(media/vecteezy_short-video-weather-sun-and-white-clouds_5109757.mp4);
   background-size: cover;
 }
 
@@ -234,4 +240,20 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+#popup-image {
+    width: 120px;
+}
+
+#form-submit{
+    border: 1px solid #03283f;
+    background-color: #FFFFFF;
+    color: #03283f;
+    transition: all 200ms ease-in-out;
+}
+
+#form-submit:hover{
+    background-color: #03283f;
+    color: #FFFFFF;
 }
