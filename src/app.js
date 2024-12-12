@@ -136,7 +136,7 @@ function showPopup() {
 
   popupVisible = true;
 }
-showPopup();
+// showPopup();
 
 function closePopup() {
   if (
@@ -271,9 +271,8 @@ function updateCurrentWeather(response) {
 
 // TEMPERATURE UNIT BUTTON FUNCTIONALITY
 function getImperialTemp(response) {
-  fahrenheitButton.style.textDecoration = "underline";
-  fahrenheitButton.style.textUnderlineOffset = "3px";
-  celciusButton.style.textDecoration = "none";
+  fahrenheitButton.style.borderBottom = "1px solid #03283f";
+  celciusButton.style.borderBottom = "none";
 
   apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchBox.value}&key=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(updateCurrentWeather);
@@ -282,9 +281,8 @@ function getImperialTemp(response) {
   currentTemp.innerHTML = temperature;
 }
 function getMetricTemp(response) {
-  celciusButton.style.textDecoration = "underline";
-  celciusButton.style.textUnderlineOffset = "3px";
-  fahrenheitButton.style.textDecoration = "none";
+  celciusButton.style.borderBottom = "1px solid #03283f";
+  fahrenheitButton.style.borderBottom = "none";
 
   apiUrl = `https://api.shecodes.io/weather/v1/current?query=${searchBox.value}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(updateCurrentWeather);
