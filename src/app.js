@@ -135,7 +135,7 @@ function showPopup() {
 
   popupVisible = true;
 }
-showPopup();
+// showPopup();
 
 function closePopup() {
   if (
