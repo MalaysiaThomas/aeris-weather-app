@@ -131,7 +131,7 @@ hr {
 }
 
 .current-weather-detail {
-  color: rgb(102, 195, 249);
+  color: rgb(23, 156, 233);
 }
 
 .unit {
@@ -145,6 +145,7 @@ hr {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  margin-top: 10px;
 }
 
 .unit:hover {
@@ -171,7 +172,7 @@ hr {
 }
 
 #current-temp {
-  font-size: 85px;
+  font-size: 70px;
   font-weight: 700;
   padding: 0 5px;
 }

@@ -136,7 +136,7 @@ function showPopup() {
 
   popupVisible = true;
 }
-// showPopup();
+showPopup();
 
 function closePopup() {
   if (
@@ -200,9 +200,7 @@ function validCityCheck(response) {
     axios.get(apiUrl).then(updateCurrentWeather);
     axios.get(apiUrl).then(weatherIcon);
 
-    fahrenheitButton.style.textDecoration = "underline";
-    fahrenheitButton.style.textUnderlineOffset = "3px";
-    celciusButton.style.textDecoration = "none";
+    getImperialTemp()
   }
 }
 userDetailSubmitButton.addEventListener("click", checkCity);
@@ -251,6 +249,8 @@ function updateCurrentWeather(response) {
   } else {
     let cityName = response.data.city;
     cityNameDisplay.innerHTML = cityName;
+    cityNameDisplay.style.fontSize = "35px"
+    cityNameDisplay.style.fontWeight = "800"
 
     let currentDescription = response.data.condition.description;
     description.innerHTML = currentDescription;
