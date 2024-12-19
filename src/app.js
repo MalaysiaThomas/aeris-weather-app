@@ -25,6 +25,9 @@ const currentTemp = document.getElementById("current-temp");
 const fahrenheitButton = document.getElementById("imperial");
 const celciusButton = document.getElementById("metric");
 
+// forecast container elements
+const forecastContainer = document.querySelector(".forecast-container")
+
 // footer element
 const footer = document.getElementById("footer");
 
@@ -293,3 +296,32 @@ function getMetricTemp(response) {
 
 fahrenheitButton.addEventListener("click", getImperialTemp);
 celciusButton.addEventListener("click", getMetricTemp);
+
+// Forecast functionality
+function displayForecast() {
+  const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHtml = ``
+
+  // Get the current day index
+  const currentDayIndex = currentTimeDate.getDay() - 1; //Adjust to align with daysOfWeek index
+  const adjustedDayIndex = (currentDayIndex + 7) % 7; // Ensure positive indices
+
+  // Generate the next 5 days
+  for (let i = 1; i <= 5; i++) {
+    const nextDayIndex = (adjustedDayIndex + i) % 7; // Wrap around the week
+    const day = daysOfWeek[nextDayIndex];
+
+    forecastHtml = forecastHtml + `
+      <div class="future-forecast">
+        <div class="forecast-day">${day}</div>
+        <div class="forecast-icon">☀️</div>
+        <div class="forecast-temp">
+          <div class="max-temp"><strong>#&deg;</strong></div>
+          <div class="min-temp">#&deg;</div>
+        </div>
+      </div>`;
+  }
+  forecastContainer.innerHTML = forecastHtml
+}
+
+displayForecast()

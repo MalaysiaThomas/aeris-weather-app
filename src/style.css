@@ -190,6 +190,27 @@ hr {
   scale: 1.05;
 }
 
+.forecast-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.future-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.forecast-temp {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
 /* ID STYLING */
 #search-box {
   width: 150px;
