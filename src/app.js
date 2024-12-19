@@ -267,12 +267,13 @@ function updateCurrentWeather(response) {
     let temperature = Math.round(response.data.temperature.current);
     currentTemp.innerHTML = temperature;
 
-    weatherIcon();
+    getForecast(response.data.city);
+    // weatherIcon();
   }
 }
 
 
-// TEMPERATURE UNIT BUTTON FUNCTIONALITY
+// Temperature unit button functionality
 function getImperialTemp(response) {
   fahrenheitButton.style.borderBottom = "1px solid #03283f";
   celciusButton.style.borderBottom = "none";
@@ -297,8 +298,19 @@ function getMetricTemp(response) {
 fahrenheitButton.addEventListener("click", getImperialTemp);
 celciusButton.addEventListener("click", getMetricTemp);
 
+
+// Get forecast data
+function getForecast(city) {
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(displayForecast)
+}
+
 // Forecast functionality
-function displayForecast() {
+function displayForecast(response) {
+console.log(response.data);
+
+
   const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHtml = ``
 
@@ -311,7 +323,7 @@ function displayForecast() {
     const nextDayIndex = (adjustedDayIndex + i) % 7; // Wrap around the week
     const day = daysOfWeek[nextDayIndex];
 
-    forecastHtml = forecastHtml + `
+    forecastHtml += `
       <div class="future-forecast">
         <div class="forecast-day">${day}</div>
         <div class="forecast-icon">☀️</div>
@@ -324,4 +336,4 @@ function displayForecast() {
   forecastContainer.innerHTML = forecastHtml
 }
 
-displayForecast()
+
