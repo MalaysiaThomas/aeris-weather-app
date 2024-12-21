@@ -221,6 +221,8 @@ function weatherIcon(response) {
     currentWeatherIcon.src = "media/day.svg";
   } else if (apiWeatherDescription.includes("cloud")) {
     currentWeatherIcon.src = "media/cloudy.svg";
+  } else if (apiWeatherDescription.includes("fog")) {
+    currentWeatherIcon.src = "media/cloudy.svg";
   } else if (apiWeatherDescription.includes("thunderstorm")) {
     currentWeatherIcon.src = "media/thunder.svg";
   } else if (apiWeatherDescription.includes("snow")) {
@@ -306,33 +308,41 @@ function getForecast(city) {
   axios.get(apiUrl).then(displayForecast)
 }
 
+// Forecast date formatter
+function formatDay(timestamp) {
+  let date= new Date(timestamp * 1000)
+  let daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+  return daysOfWeek[date.getDay()]
+}
+
 // Forecast functionality
 function displayForecast(response) {
-console.log(response.data);
+  console.log(response.data);
 
-
-  const daysOfWeek = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHtml = ``
+  
+  response.data.daily.forEach(
+    function (day, index) {
+      let maxTemp = Math.round(day.temperature.maximum);
+      let minTemp = Math.round(day.temperature.minimum);
 
-  // Get the current day index
-  const currentDayIndex = currentTimeDate.getDay() - 1; //Adjust to align with daysOfWeek index
-  const adjustedDayIndex = (currentDayIndex + 7) % 7; // Ensure positive indices
-
-  // Generate the next 5 days
-  for (let i = 1; i <= 5; i++) {
-    const nextDayIndex = (adjustedDayIndex + i) % 7; // Wrap around the week
-    const day = daysOfWeek[nextDayIndex];
-
-    forecastHtml += `
-      <div class="future-forecast">
-        <div class="forecast-day">${day}</div>
-        <div class="forecast-icon">☀️</div>
-        <div class="forecast-temp">
-          <div class="max-temp"><strong>#&deg;</strong></div>
-          <div class="min-temp">#&deg;</div>
-        </div>
-      </div>`;
-  }
+      if (index < 5) {
+        forecastHtml += `
+        <div class="future-forecast">
+          <div class="forecast-day">${formatDay(day.time)}</div>
+          <div class="forecast-icon">
+            <img src="${day.condition.icon_url}" />
+          </div>
+          <div class="forecast-temp">
+            <div class="max-temp"><strong>${maxTemp}&deg;</strong></div>
+            <div class="min-temp">${minTemp}&deg;</div>
+          </div>
+        </div>`;
+      }
+    }
+  );
+  
   forecastContainer.innerHTML = forecastHtml
 }
 

@@ -202,7 +202,8 @@ hr {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  border: 2px solid rgb(24, 114, 217);
+  background-color:  rgba(24, 114, 217, 0.197);
+  border: 2px solid rgba(24, 114, 217, 0.317);
   border-radius: 10px;
   padding: 3px 10px;
   transition: all 200ms ease-in-out;
@@ -219,6 +220,10 @@ hr {
   flex-direction: row;
   justify-content: center;
   gap: 10px;
+}
+
+.forecast-icon > img{
+  width: 100%;
 }
 
 /* ID STYLING */
